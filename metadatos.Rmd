@@ -1,0 +1,83 @@
+---
+title: "Metadatos Gutenberg"
+output: html_notebook
+---
+
+```{r include=FALSE}
+library(gutenbergr)
+library(dplyr)
+library(tidyr)
+library(tidytext)
+```
+
+
+
+
+```{r}
+gutenberg_metadata %>% names
+```
+
+```{r}
+gutenberg_metadata %>% 
+  group_by(gutenberg_bookshelf) %>% 
+  count %>% 
+  arrange(desc(n))
+```
+
+```{r}
+gutenberg_metadata %>% 
+  filter(language == 'en') %>% 
+  count
+```
+
+
+
+```{r}
+fiction <- data.frame(genero = c(
+  "Adventure",
+  "Children's Fiction",
+  "Crime Fiction",
+  "Detective Fiction",
+  "Erotic Fiction",
+  "Fantasy",
+  "General Fiction",
+  "Gothic Fiction",
+  "Historical Fiction",
+  "Horror",
+  "Humor",
+  # "Movie Books",
+  "Mystery Fiction",
+  # "Precursors of Science Fiction",
+  "Romantic Fiction",
+  "School Stories",
+  "Science Fiction",
+  "Western"
+  ),
+  clave = c('adv', 'chd', 'crm', 'det', 'ero', 'fnt', 'gen', 'gth', 'hst', 'hrr', 'hmr', 'mys', 'rmc', 'sch', 'sfi', 'wst')
+)
+```
+
+
+```{r}
+libros <- 
+  gutenberg_metadata %>% filter(language == 'en') %>% 
+    mutate(genero = strsplit(gutenberg_bookshelf, '/')) %>% 
+    unnest(genero) %>% 
+    inner_join(fiction) 
+```
+
+```{r}
+descarga_gut <- function(g_id) {
+  gutenberg_download(g_id) %>% 
+    select(text) %>% 
+    paste0(collapse = ' ')
+}
+```
+
+
+```{r}
+textos <-
+  lapply(unique(libros$gutenberg_id),
+         gutenberg_download(x))
+```
+
