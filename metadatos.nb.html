@@ -263,35 +263,8 @@ Column `genero` joining character vector and factor, coercing into character vec
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICBndXRlbmJlcmdfZG93bmxvYWQoZ19pZCkgJT4lIFxuICAgIHNlbGVjdCh0ZXh0KSAlPiUgXG4gICAgcGFzdGUwKGNvbGxhcHNlID0gJyAnKVxuXG5gYGAifQ== -->
-<pre class="r"><code>  gutenberg_download(g_id) %&gt;% 
-    select(text) %&gt;% 
-    paste0(collapse = ' ')
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZ3V0ZW5iZXJnX2Rvd25sb2FkKGdfaWQpIDogb2JqZWN0ICdnX2lkJyBub3QgZm91bmRcbiJ9 -->
-<pre><code>Error in gutenberg_download(g_id) : object 'g_id' not found</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGV4dG9zIDwtXG4gIGxhcHBseSh1bmlxdWUobGlicm9zJGd1dGVuYmVyZ19pZCksXG4gICAgICAgICBndXRlbmJlcmdfZG93bmxvYWQoKSlcblxuYGBgIn0= -->
-<pre class="r"><code>textos &lt;-
-  lapply(unique(libros$gutenberg_id),
-         gutenberg_download())
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaW5oZXJpdHMoZ3V0ZW5iZXJnX2lkLCBcImRhdGEuZnJhbWVcIikgOiBcbiAgYXJndW1lbnQgXCJndXRlbmJlcmdfaWRcIiBpcyBtaXNzaW5nLCB3aXRoIG5vIGRlZmF1bHRcbiJ9 -->
-<pre><code>Error in inherits(gutenberg_id, &quot;data.frame&quot;) : 
-  argument &quot;gutenberg_id&quot; is missing, with no default</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiTWV0YWRhdG9zIEd1dGVuYmVyZyIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3IgaW5jbHVkZT1GQUxTRX0KbGlicmFyeShndXRlbmJlcmdyKQpsaWJyYXJ5KGRwbHlyKQpsaWJyYXJ5KHRpZHlyKQpsaWJyYXJ5KHRpZHl0ZXh0KQpgYGAKCgoKCmBgYHtyfQpndXRlbmJlcmdfbWV0YWRhdGEgJT4lIG5hbWVzCmBgYAoKYGBge3J9Cmd1dGVuYmVyZ19tZXRhZGF0YSAlPiUgCiAgZ3JvdXBfYnkoZ3V0ZW5iZXJnX2Jvb2tzaGVsZikgJT4lIAogIGNvdW50ICU+JSAKICBhcnJhbmdlKGRlc2MobikpCmBgYAoKYGBge3J9Cmd1dGVuYmVyZ19tZXRhZGF0YSAlPiUgCiAgZmlsdGVyKGxhbmd1YWdlID09ICdlbicpICU+JSAKICBjb3VudApgYGAKCgoKYGBge3J9CmZpY3Rpb24gPC0gZGF0YS5mcmFtZShnZW5lcm8gPSBjKAogICJBZHZlbnR1cmUiLAogICJDaGlsZHJlbidzIEZpY3Rpb24iLAogICJDcmltZSBGaWN0aW9uIiwKICAiRGV0ZWN0aXZlIEZpY3Rpb24iLAogICJFcm90aWMgRmljdGlvbiIsCiAgIkZhbnRhc3kiLAogICJHZW5lcmFsIEZpY3Rpb24iLAogICJHb3RoaWMgRmljdGlvbiIsCiAgIkhpc3RvcmljYWwgRmljdGlvbiIsCiAgIkhvcnJvciIsCiAgIkh1bW9yIiwKICAjICJNb3ZpZSBCb29rcyIsCiAgIk15c3RlcnkgRmljdGlvbiIsCiAgIyAiUHJlY3Vyc29ycyBvZiBTY2llbmNlIEZpY3Rpb24iLAogICJSb21hbnRpYyBGaWN0aW9uIiwKICAiU2Nob29sIFN0b3JpZXMiLAogICJTY2llbmNlIEZpY3Rpb24iLAogICJXZXN0ZXJuIgogICksCiAgY2xhdmUgPSBjKCdhZHYnLCAnY2hkJywgJ2NybScsICdkZXQnLCAnZXJvJywgJ2ZudCcsICdnZW4nLCAnZ3RoJywgJ2hzdCcsICdocnInLCAnaG1yJywgJ215cycsICdybWMnLCAnc2NoJywgJ3NmaScsICd3c3QnKQopCmBgYAoKCmBgYHtyfQpsaWJyb3MgPC0gCiAgZ3V0ZW5iZXJnX21ldGFkYXRhICU+JSBmaWx0ZXIobGFuZ3VhZ2UgPT0gJ2VuJykgJT4lIAogICAgbXV0YXRlKGdlbmVybyA9IHN0cnNwbGl0KGd1dGVuYmVyZ19ib29rc2hlbGYsICcvJykpICU+JSAKICAgIHVubmVzdChnZW5lcm8pICU+JSAKICAgIGlubmVyX2pvaW4oZmljdGlvbikgCmBgYAoKYGBge3J9CmRlc2NhcmdhX2d1dCA8LSBmdW5jdGlvbihnX2lkKSB7CiAgZ3V0ZW5iZXJnX2Rvd25sb2FkKGdfaWQpICU+JSAKICAgIHNlbGVjdCh0ZXh0KSAlPiUgCiAgICBwYXN0ZTAoY29sbGFwc2UgPSAnICcpCn0KYGBgCgoKYGBge3J9CnRleHRvcyA8LQogIGxhcHBseSh1bmlxdWUobGlicm9zJGd1dGVuYmVyZ19pZCksCiAgICAgICAgIGd1dGVuYmVyZ19kb3dubG9hZCh4KSkKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiTWV0YWRhdG9zIEd1dGVuYmVyZyIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKYGBge3IgaW5jbHVkZT1GQUxTRX0KbGlicmFyeShndXRlbmJlcmdyKQpsaWJyYXJ5KGRwbHlyKQpsaWJyYXJ5KHRpZHlyKQpsaWJyYXJ5KHRpZHl0ZXh0KQpgYGAKCgoKCmBgYHtyfQpndXRlbmJlcmdfbWV0YWRhdGEgJT4lIG5hbWVzCmBgYAoKYGBge3J9Cmd1dGVuYmVyZ19tZXRhZGF0YSAlPiUgCiAgZ3JvdXBfYnkoZ3V0ZW5iZXJnX2Jvb2tzaGVsZikgJT4lIAogIGNvdW50ICU+JSAKICBhcnJhbmdlKGRlc2MobikpCmBgYAoKYGBge3J9Cmd1dGVuYmVyZ19tZXRhZGF0YSAlPiUgCiAgZmlsdGVyKGxhbmd1YWdlID09ICdlbicpICU+JSAKICBjb3VudApgYGAKCgoKYGBge3J9CmZpY3Rpb24gPC0gZGF0YS5mcmFtZShnZW5lcm8gPSBjKAogICJBZHZlbnR1cmUiLAogICJDaGlsZHJlbidzIEZpY3Rpb24iLAogICJDcmltZSBGaWN0aW9uIiwKICAiRGV0ZWN0aXZlIEZpY3Rpb24iLAogICJFcm90aWMgRmljdGlvbiIsCiAgIkZhbnRhc3kiLAogICJHZW5lcmFsIEZpY3Rpb24iLAogICJHb3RoaWMgRmljdGlvbiIsCiAgIkhpc3RvcmljYWwgRmljdGlvbiIsCiAgIkhvcnJvciIsCiAgIkh1bW9yIiwKICAjICJNb3ZpZSBCb29rcyIsCiAgIk15c3RlcnkgRmljdGlvbiIsCiAgIyAiUHJlY3Vyc29ycyBvZiBTY2llbmNlIEZpY3Rpb24iLAogICJSb21hbnRpYyBGaWN0aW9uIiwKICAiU2Nob29sIFN0b3JpZXMiLAogICJTY2llbmNlIEZpY3Rpb24iLAogICJXZXN0ZXJuIgogICksCiAgY2xhdmUgPSBjKCdhZHYnLCAnY2hkJywgJ2NybScsICdkZXQnLCAnZXJvJywgJ2ZudCcsICdnZW4nLCAnZ3RoJywgJ2hzdCcsICdocnInLCAnaG1yJywgJ215cycsICdybWMnLCAnc2NoJywgJ3NmaScsICd3c3QnKQopCmBgYAoKCmBgYHtyfQpsaWJyb3MgPC0gCiAgZ3V0ZW5iZXJnX21ldGFkYXRhICU+JSBmaWx0ZXIobGFuZ3VhZ2UgPT0gJ2VuJykgJT4lIAogICAgbXV0YXRlKGdlbmVybyA9IHN0cnNwbGl0KGd1dGVuYmVyZ19ib29rc2hlbGYsICcvJykpICU+JSAKICAgIHVubmVzdChnZW5lcm8pICU+JSAKICAgIGlubmVyX2pvaW4oZmljdGlvbikgCmBgYAoKCgo=</div>
 
 
 

@@ -66,18 +66,5 @@ libros <-
     inner_join(fiction) 
 ```
 
-```{r}
-descarga_gut <- function(g_id) {
-  gutenberg_download(g_id) %>% 
-    select(text) %>% 
-    paste0(collapse = ' ')
-}
-```
 
-
-```{r}
-textos <-
-  lapply(unique(libros$gutenberg_id),
-         gutenberg_download(x))
-```
 
