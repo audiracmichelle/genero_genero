@@ -15,5 +15,5 @@ for b in tqdm(range(len(list_books))):
         book_aux = f.read()
     for t in terms:
         book_aux = book_aux.replace(t, t + '_' + ctg.iloc[0])
-    with open('books_labeled/' + name, 'w') as f:
+    with open('books_labeled/books_labels.txt', 'a') as f:
         f.write(book_aux)
