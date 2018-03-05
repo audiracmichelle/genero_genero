@@ -35,9 +35,8 @@ def train_w2v(books_list):
     return w2v
 
 
-if __name__ == '__main__':
-    t = time.time()
-    books_list = os.listdir('books_labeled')
+def main_w2v(books_dir):
+    books_list = os.listdir(books_dir)
     print(
         'Generating sentences from',
         len(books_list),
@@ -49,3 +48,9 @@ if __name__ == '__main__':
     ge_w2v.wv.save_word2vec_format('models/wv_labeled.txt', binary=False)
     elapsed = time.time() - t
     print("Total exec time: %4.3f s", elapsed)
+    return ge_w2v
+
+
+if __name__ == '__main__':
+    t = time.time()
+    ge_w2v = main_w2v('books_labeled')
