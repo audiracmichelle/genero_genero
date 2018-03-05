@@ -17,8 +17,9 @@ def init_w2v_model():
     # create a w2v learner
     basemodel = gensim.models.Word2Vec(
         workers=multiprocessing.cpu_count(),  # use your cores
-        iter=5,
-        size=300)
+        iter=15,
+        size=300,
+        window=10)
     return basemodel
 
 
@@ -31,7 +32,7 @@ def train_w2v(books_list):
     w2v.train(
         iter_books(books_list),
         total_examples=w2v.corpus_count,
-        epochs=10)
+        epochs=15)
     return w2v
 
 
@@ -43,7 +44,7 @@ def main_w2v(books_dir):
         'books')
     ge_w2v = train_w2v(books_list)
     print('Saving model (%4.3f s)' % (time.time() - t))
-    ge_w2v.save('models/labeled_w2v.model (%4.3f s)' % (time.time() - t))
+    ge_w2v.save('models/labeled_w2v.model')
     print('Saving word embeddings (%4.3f s)' % (time.time() - t))
     ge_w2v.wv.save_word2vec_format('models/wv_labeled.txt', binary=False)
     elapsed = time.time() - t
