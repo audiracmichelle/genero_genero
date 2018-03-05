@@ -66,5 +66,8 @@ libros <-
     inner_join(fiction) 
 ```
 
+```{r}
+libros %>% write.csv('df_libros.csv')
+```
 
 
