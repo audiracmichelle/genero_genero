@@ -8,7 +8,7 @@ def iter_docs(doc_dir):
     doc_list = os.listdir(doc_dir)
     # Generator for reading files
     for file_name in doc_list:
-        with open('doc_dir + file_name) as f:
+        with open(doc_dir + file_name) as f:
             lines = gensim.models.word2vec.LineSentence(f)
             for l in lines:
                 yield l
