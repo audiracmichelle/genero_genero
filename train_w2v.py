@@ -18,9 +18,9 @@ def init_w2v_model():
     # create a w2v learner
     basemodel = gensim.models.Word2Vec(
         workers=multiprocessing.cpu_count(),  # use your cores
-        iter=16,
+        iter=25,
         size=300,
-        window=10)
+        window=5)
     return basemodel
 
 
@@ -33,7 +33,7 @@ def train_w2v(doc_dir, t):
     w2v.train(
         iter_docs(doc_dir),
         total_examples=w2v.corpus_count,
-        epochs=20)
+        epochs=50)
     return w2v
 
 
