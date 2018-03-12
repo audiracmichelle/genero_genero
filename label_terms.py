@@ -32,7 +32,7 @@ def main_replace(book_dir, terms):
 
 
 def make_cat_dirs():
-    cats = pd.read_csv('params/df_libros.csv').clave.unique().tolist()
+    cats = df_books.clave.unique().tolist()
     for cat in cats:
         if not os.path.exists('books_divided' + '/' + cat):
             os.makedirs('books_divided' + '/' + cat)
