@@ -8,6 +8,7 @@ library(gutenbergr)
 library(dplyr)
 library(tidyr)
 library(tidytext)
+library(ggplot2)
 ```
 
 
@@ -67,7 +68,17 @@ libros <-
 ```
 
 ```{r}
-libros %>% write.csv('df_libros.csv')
+# libros %>% write.csv('df_libros.csv')
 ```
 
+```{r}
+libros %>% 
+  group_by(genero) %>% 
+  summarise(cuenta = n()) %>% 
+  arrange(desc(cuenta)) %>% 
+  ggplot(aes(x=reorder(genero,cuenta), y=cuenta)) +
+    geom_bar(stat='identity') +
+    coord_flip() +
+    theme(axis.text.y = element_text(size=14))
+```
 
