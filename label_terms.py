@@ -51,4 +51,4 @@ if __name__ == '__main__':
     df_books = pd.read_csv('params/df_libros.csv')
     terms = get_terms('params/terms.txt')
     book_dir = 'books'
-    main_divide(book_dir)
+    main_replace(book_dir, terms)
