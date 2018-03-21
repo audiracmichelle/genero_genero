@@ -7,3 +7,4 @@ Primero se debe correr `initialize.sh`, que crea los directorios necesarios e in
 * `download_gutenberg`. Descarga los libros especificados de Proyect Gutenberg.
 * `label_terms`. Etiqueta los términos especificados en `terms.txt` en todos los libros y los guarda en una carpeta aparte.
 * `train_w2v`. Entrena un modelo Word2Vec a partir de los archivos.
+* `genero_genero.ipynb`. Análisis de los vectores de palabras.
